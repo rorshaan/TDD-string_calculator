@@ -16,7 +16,7 @@ class StringCalculator
     def validate_numbers
       return 'Invalid Input' unless valid_input?
 
-      numbers = split_string(/,|\n/).map(&:to_i)
+      numbers = split_string(/#{delimiter}|\n/).map(&:to_i)
       negatives = numbers.select(&:negative?)
       raise "negative numbers not allowed #{negatives.join(', ')}" if negatives.any?
 
@@ -24,10 +24,19 @@ class StringCalculator
     end
 
     def valid_input?
-      split_string(',').select { |num| num.eql?("\n") }.empty?
+      split_string.select { |num| num.eql?("\n") }.empty?
     end
 
-    def split_string(str)
+    def delimiter
+      str = ','
+      if string_number.start_with?('//')
+        str, _numbers = split_string("\n")
+        str = str[2..]
+      end
+      str
+    end
+
+    def split_string(str = delimiter)
       string_number.split(str)
     end
   end
