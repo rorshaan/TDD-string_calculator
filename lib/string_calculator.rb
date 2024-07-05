@@ -10,6 +10,8 @@ class StringCalculator
       numbers = split_string(string_number).map(&:to_i)
       negatives = numbers.select(&:negative?)
       raise "negative numbers not allowed #{negatives.join(', ')}" if negatives.any?
+
+      return numbers.first if numbers.size == 1
     end
 
     private
