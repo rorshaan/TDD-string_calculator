@@ -12,6 +12,10 @@ RSpec.describe StringCalculator do
       it 'returns 0 for an empty string' do
         expect(klass.add("")).to eq(0)
       end
+
+      it 'return invalid input for invalid string' do
+        expect(klass.add("1,\n")).to eq("Invalid Input")
+      end
     end
   end
 end
