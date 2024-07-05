@@ -30,6 +30,10 @@ RSpec.describe StringCalculator do
       it 'returns the sum of numbers for comma-separated numbers' do
         expect(klass.add("1,5")).to eq(6)
       end
+
+      it 'handles new lines between numbers' do
+        expect(klass.add("1\n2,3")).to eq(6)
+      end
     end
   end
 end
