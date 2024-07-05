@@ -16,6 +16,10 @@ RSpec.describe StringCalculator do
       it 'return invalid input for invalid string' do
         expect(klass.add("1,\n")).to eq("Invalid Input")
       end
+
+      it 'raises an error for negative numbers' do
+        expect { klass.add("1,-2,3") }.to raise_error(RuntimeError, "negative numbers not allowed -2")
+      end
     end
   end
 end
