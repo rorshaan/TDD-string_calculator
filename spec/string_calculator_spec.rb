@@ -1,3 +1,5 @@
+require_relative './../lib/string_calculator'
+
 RSpec.describe StringCalculator do
   describe '.add' do
     context 'with invalid input' do
