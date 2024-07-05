@@ -2,8 +2,8 @@
 
 class StringCalculator
   class << self
-    def add(string_number = nil)
-      return 0 if string_number.nil? || string_number.empty?
+    def add(string_number = '')
+      return 0 if string_number.empty?
     end
   end
 end
