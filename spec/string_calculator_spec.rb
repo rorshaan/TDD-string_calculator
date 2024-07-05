@@ -21,5 +21,11 @@ RSpec.describe StringCalculator do
         expect { klass.add("1,-2,3") }.to raise_error(RuntimeError, "negative numbers not allowed -2")
       end
     end
+
+    context 'with valid input' do
+      it 'returns the number itself for a single number' do
+        expect(klass.add("1")).to eq(1)
+      end
+    end
   end
 end
